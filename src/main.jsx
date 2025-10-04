@@ -4,6 +4,6 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <h1>Commuter Weather App</h1>
+    <h1 className='font-bold'>Commuter Weather App</h1>
   </StrictMode>,
 )
