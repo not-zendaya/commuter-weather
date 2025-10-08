@@ -54,6 +54,11 @@ const Forecast = () =>{
       </div>
     );
      
+const getHour = (dt_txt) => {
+    const date = new Date(dt_txt);
+    return date.toLocaleDateString("en-US", { hour:"numeric", hour12: true, });
+};
+
     return(
         <div className="p-6 min-h-screen bg-gradient-to-b from-blue-50 to-blue-200">
             <h2 className="text-3xl font-bold text-center mb-6 text-teal-800">5-Day Forecast Comparison</h2>
