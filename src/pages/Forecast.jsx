@@ -92,6 +92,14 @@ const getHour = (dt_txt) => {
                     </div>
                 </div>
             </div>
+
+            <div className="text-center mt-12">
+                <button
+                onClick={loadForecast} 
+                className="bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-2 mr-6 rounded-xl shadow-lg hover:scale-105 transition transform">
+                    Refresh Forecast 
+                </button>
+            </div>
         </div>
     );
 };
