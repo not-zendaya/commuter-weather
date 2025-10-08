@@ -65,6 +65,9 @@ const getHour = (dt_txt) => {
     return(
         <div className="p-6 min-h-screen bg-gradient-to-b from-blue-50 to-blue-200">
             <h2 className="text-3xl font-bold text-center mb-6 text-teal-800">5-Day Forecast Comparison</h2>
+
+            <div className="grid md:grid-cols-2 gap-8">
+                <div className="border-2 border-blue-300 rounded-2xl p-6 shadow-md bg-white">
                     <h3 className="text-xl font-semibold text-center text-blue-700 mb-4">{homeCity.split(",")[0]}</h3>
                     <div className="flex overflow-x-auto gap-4 scroll-smooth scrollbar-thin scrollbar-thumb-blue-400">
                         {HomeForecast?.map((f, index) => (
@@ -79,9 +82,14 @@ const getHour = (dt_txt) => {
                                 <p className="text-gray-700">{f.weather[0].main}</p>
                             </div>
                         ))}
+                    </div>
+                </div>
+
+                <div className="bg-white rounded-2xl shadow-xl p-6 border border-green-300">
                     <h3 className="text-2xl font-semibold text-center text-green-700 mb-4">{schoolCity.split(",")[0]}</h3>
                     <div className="flex overflow-x-auto gap-4 scroll-smooth scrollbar-thin scrollbar-thumb-green-400">
                         {SchoolForecast?.map((f, index) => (
+                            <div key={index} className="bg-green-200 hover:bg-green-300 transition transform hover:scale-105 p-5 rounded-2xl min-w-[150px] text-center shadow-lg">
                                 <p className="font-bold text-lg text-gray-800 mb-1">{getHour(f.dt_txt)}</p>
                                 <img 
                                 src={`https://openweathermap.org/img/wn/${f.weather[0].icon}@2x.png`}
