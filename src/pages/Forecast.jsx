@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
+
+
 const Forecast = () =>{
     const [HomeForecast, setHomeForecast] = useState(null);
     const [SchoolForecast, setSchoolForecast] = useState(null);
@@ -99,6 +102,7 @@ const getHour = (dt_txt) => {
                 className="bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-2 mr-6 rounded-xl shadow-lg hover:scale-105 transition transform">
                     Refresh Forecast 
                 </button>
+                <Link to="/" className="bg-gradient-to-r from-green-800 to-blue-800 text-white px-6 py-2 rounded-xl shadow-lg hover:scale-105 transition transform">Back to Home</Link>
             </div>
         </div>
     );
