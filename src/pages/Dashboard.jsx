@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import logo from "../assets/logo.png";
 
 const Setup = () =>{
+    const [step, setStep] = useState(1);
     const [homeCity, setHomeCity] = useState("");
     const [schoolCity, setSchoolCity] = useState("");
     const [error, setError] = useState("");
@@ -22,6 +23,7 @@ const Setup = () =>{
 
     return(
         <div 
+            {step === 1 && (
                 <div>
                 <img
                 src={logo}
@@ -33,9 +35,12 @@ const Setup = () =>{
                     Let's Get Started 🚀
                 </p>
                 <button
+                onClick={() => setStep(2)}
                     Set Locations
                 </button>
                 </div>
+            )}
+
         </div>
     );
 };
