@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from "../assets/logo.png";
 
 const Setup = () =>{
     const [homeCity, setHomeCity] = useState("");
@@ -22,6 +23,10 @@ const Setup = () =>{
     return(
         <div 
                 <div>
+                <img
+                src={logo}
+                alt="logo"
+                />
                 <h1 
                 <p 
                     Get personalized weather updates for your daily routes!
