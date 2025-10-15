@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from "../assets/logo.png";
+import location from "../assets/location.png";
 
 const Setup = () =>{
     const [step, setStep] = useState(1);
@@ -65,6 +66,12 @@ const Setup = () =>{
                     onClick={handleSave}
                          Save Locations
                     </button>
+                    <div className=" flex justify-center">
+                    <img
+                    src={location}
+                    alt="location-pin"
+                    />
+                    </div>
                 </div>
             )}
         </div>
