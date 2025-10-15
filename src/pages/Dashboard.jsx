@@ -41,6 +41,32 @@ const Setup = () =>{
                 </div>
             )}
 
+            {step === 2 && (
+                <div 
+                    <h2 
+                    Set Up Your Locations
+                    </h2>
+                    <div 
+                    >Enter your home city</label>
+                    <input 
+                    type="text" 
+                    placeholder="e.g. Nairobi"
+                    value={homeCity} 
+                    onChange={(e) => setHomeCity(e.target.value)}
+                    />
+                    <input
+                    type="text"
+                    placeholder="e.g. Embakasi"
+                    value={schoolCity}
+                    onChange={(e) => setSchoolCity(e.target.value)}
+                    />
+                    </div>
+                    <button
+                    onClick={handleSave}
+                         Save Locations
+                    </button>
+                </div>
+            )}
         </div>
     );
 };
