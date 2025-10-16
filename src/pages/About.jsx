@@ -1,4 +1,5 @@
 import React from "react";
+import {Link } from "react-router-dom"
 
 const About = () => {
     return(
@@ -12,6 +13,13 @@ const About = () => {
             <p className="text-sm text-center italic text-gray-700">
                 Built with ❤️ using React and OpenWeather API.
             </p>
+            <div className="mt-6">
+                <Link
+                to="/"
+                >
+                    Back to Home
+                </Link>
+            </div>   
         </div>
     );
 };
