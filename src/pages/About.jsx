@@ -4,14 +4,25 @@ import logo from "../assets/logo.png";
 
 const About = () => {
     return(
-        <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-blue-100 to-blue-400 text-gray-600 p-6 text-center">
-            <h1 className="text-3xl text-center text-blue-700 font-bold mb-4">About CommuterWeather</h1>
-            <p className="max-w-xl text-lg mb-6">
-                CommuterWeather helps users plan their daily travel by comparing the weather 
+        <div 
+        className="h-screen w-full flex flex-col justify-center items-center 
+        bg-gradient-to-br from-sky-950 via-slate-900 to-sky-950 dark:from-gray-900 dark:via-slate-800 dark:to-gray-900
+        text-white dark:text-gray-100 px-6 py-8 text-center">
+            <div className="flex flex-col items-center">
                 <img
                 src={logo}
                 alt="logo"
+                className="w-10 h-10 object-contain animate-fade-in object-cover rounded-full border-2 border-sky-600 shadow-lg"
                 />
+                <h1 
+                className="text-3xl md:text-5xl font-bold mb-6 text-sky-300 dark:text-sky-400">
+                    About CommuterWeather
+                </h1>
+            </div>
+           
+            <p 
+            className="max-w-2xl md:text-xl mb-8 text-gray-200 dark:text-gray-300 tracking-wide">
+                <span className="font-semibold text-sky-400">CommuterWeather </span> helps users plan their daily travel by comparing the weather 
                 between two important locations, typically your <strong>home</strong> and<strong> school</strong>. 
                 With hourly forecasts and smart recommendations, you can prepare better for your day.
             </p>
