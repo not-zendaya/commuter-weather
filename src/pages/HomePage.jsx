@@ -30,14 +30,13 @@ const Home = () =>{
         loadWeather();    
     }, [homeCity, schoolCity, apiKey]);
 
-    return(
-        <div className="min-h-screen bg-gradient-to-b from-sky-200 to-blue-500 dark:from-gray-900 dark:to-gray-700 flex flex-col items-center justify-center py-10 px-4">
-            <h1 className="text-3xl font-bold mb-6 text-white text-center">
     if(loading)
         return(
     <div 
+    className="flex items-center justify-center bg-gradient-to-br from-sky-950 via-slate-900 to-sky-950 text-white"
     >
         <p 
+        className="text-xl font-semibold animate-pulse"
         >
             Loading weather data...
         </p>
@@ -46,27 +45,29 @@ const Home = () =>{
 
     return(  
         <div 
+        className="h-screen w-screen bg-gradient-to-br from-sky-900 via-slate-800 to-sky-950 flex flex-col items-center justify-between py-6 px-4 text-white overflow-hidden"
         >
             <h1 
+            className="text-3xl md:text-4xl mb-8 text-white text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-cyan-400 "
             > 
                 🌤️ Commuter Weather Dashboard
             </h1>
-            <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-                <WeatherCard city={homeCity} />
-                <WeatherCard city={schoolCity} />
             <div 
+            className="flex flex-col md:flex-row gap-8 justify-center items-stretch w-full max-w-5xl"
             >
                 <div 
+                className="flex-1 text-slate-900 "
                 >
                     <WeatherCard city={homeCity} />
                 </div>
                 <div 
+                className="flex-1 text-slate-900 "
                 >
                     <WeatherCard city={schoolCity} />
                 </div> 
             </div>
-            <Recommendations homeWeather={homeWeather} schoolWeather={schoolWeather} />
             <div 
+            className="mt-4 w-full flex justify-center px-4 "
             >
                 <Recommendations homeWeather={homeWeather} schoolWeather={schoolWeather} />
             </div>  
