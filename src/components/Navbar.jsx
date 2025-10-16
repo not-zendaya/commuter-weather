@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import {Sun , Moon, RefreshCw, Settings, Thermometer} from "lucide-react";
+import logo from "../assets/logo.png";
 
 const Navbar = () =>{
     const [darkMode, setDarkMode] = useState(false);
@@ -40,6 +41,10 @@ const Navbar = () =>{
             <div 
             onClick={() => navigate("/")}
             >
+                <img
+                src={logo}
+                alt="logo"
+                />
                 <h1
                 className="txt-xl font-bold tracking-wide">
                     CommuterWeather
