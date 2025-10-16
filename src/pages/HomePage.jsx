@@ -3,8 +3,8 @@ import WeatherCard from "../components/WeatherCard";
 import Recommendations from "../components/Recommendations";
 
 const Home = () =>{
-    const [homeCity, setHomeCity] = useState("Upper Hill");
-    const [schoolCity, setSchoolCity] = useState("Embakasi");
+    const [homeCity, setHomeCity] = useState(localStorage.getItem("homeCity") || "");
+    const [schoolCity, setSchoolCity] = useState(localStorage.getItem("schoolCity") || "");
     const [homeWeather, setHomeWeather] = useState(null);
     const [schoolWeather, setSchoolWeather] = useState(null);
     const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
@@ -27,13 +27,32 @@ const Home = () =>{
     return(
         <div className="min-h-screen bg-gradient-to-b from-sky-200 to-blue-500 dark:from-gray-900 dark:to-gray-700 flex flex-col items-center justify-center py-10 px-4">
             <h1 className="text-3xl font-bold mb-6 text-white text-center">
+    return(  
+        <div 
+        >
+            <h1 
+            > 
                 🌤️ Commuter Weather Dashboard
             </h1>
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
                 <WeatherCard city={homeCity} />
                 <WeatherCard city={schoolCity} />
+            <div 
+            >
+                <div 
+                >
+                    <WeatherCard city={homeCity} />
+                </div>
+                <div 
+                >
+                    <WeatherCard city={schoolCity} />
+                </div> 
             </div>
             <Recommendations homeWeather={homeWeather} schoolWeather={schoolWeather} />
+            <div 
+            >
+                <Recommendations homeWeather={homeWeather} schoolWeather={schoolWeather} />
+            </div>  
         </div>
     );
 };
