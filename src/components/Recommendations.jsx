@@ -22,8 +22,12 @@ const Recommendations =({ homeWeather, schoolWeather}) =>{
     const message = getRecommendation(homeWeather, schoolWeather);
 
     return(
-        <div className="mt-4 bg-yellow-100 dark:bg-yellow-800 text-yellow-900 dark:text-yellow-100 px-4 py-3 rounded-xl shadow-sm">
-            <p className="text-center font-medium">{message}</p>
+        <div 
+        className="bg-slate-800/60 backdrop-blur-md border border-sky-700/80 text-sky-100 text-center px-6 py-4 rounded-2xl shadow-lg w-full max-w-2xl transition-transform duration-200 hover:scale-[1.02] ">   
+            <p 
+            className="text-lg md:text-xl font-medium tracking-wide">
+                {message}
+            </p>
         </div>
     );
 };
