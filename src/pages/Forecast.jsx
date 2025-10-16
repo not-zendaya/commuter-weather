@@ -9,8 +9,8 @@ const Forecast = () =>{
     const [loading, setLoading] = useState(true);
     const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
-    const homeCity = "Embakasi";
-    const schoolCity = "Nairobi";
+    const homeCity = localStorage.getItem("homeCity");
+    const schoolCity = localStorage.getItem("schoolCity");
     const fetchForecast = async (city, setForecast, keyName) =>{
         try{
             const response = await fetch (`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`);
@@ -30,8 +30,8 @@ const Forecast = () =>{
      };
 
     useEffect(() =>{
-        const storedHome =localStorage.getItem("homeCity");
-        const storedSchool = localStorage.getItem("schoolCity");
+        const storedHome =localStorage.getItem("HomeForecast");
+        const storedSchool = localStorage.getItem("SchoolForecast");
 
         if(storedHome && storedSchool){
             setHomeForecast(JSON.parse(storedHome));
