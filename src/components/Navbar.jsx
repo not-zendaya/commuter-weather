@@ -38,12 +38,15 @@ const Navbar = () =>{
 
     return(
         <nav 
+        className="flex items-center justify-between p-4 shadow-md bg-gradient-to-br from-sky-950 via-slate-900 to-sky-950 text-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 trasition-all">
             <div 
+            className="flex items-center gap-2 cursor-pointer"
             onClick={() => navigate("/")}
             >
                 <img
                 src={logo}
                 alt="logo"
+                className="w-8 h-8 object-contain animate-fade-in object-cover rounded-full border-2 border-sky-600 shadow-lg"
                 />
                 <h1
                 className="txt-xl font-bold tracking-wide">
@@ -54,27 +57,32 @@ const Navbar = () =>{
             className="hidden md:flex gap-6 text-md font-medium">
                 <Link 
                 to="/" 
+                className ={`hover:text-yellow-200 $ {
                     location.pathname === "/" ? "underline" : ""
                     }`}
                 >Home 
                 </Link>
                 <Link 
                 to="/forecast" 
+                className={`hover:text-yellow-200 ${
                     location.pathname === "/forecast" ? "underline" : ""
                 }`}
                 > Forecast ⛅ 
                 </Link>
                 <Link 
                 to="/about" 
+                className={`hover:text-yellow-200 ${
                     location.pathname === "/about" ? "underline" : ""
                 }`}
                 > About 
                 </Link>
             </div>
             <div 
+            className="flex items-center gap-4">
                 <button
                 onClick={toggleTheme}
                 title="Toggle Theme"
+                className="hover:text-yellow-300 trasition"
                 >
                     {darkMode ? <Moon size={22} /> : <Sun size={22} />}
                 </button>
@@ -82,9 +90,11 @@ const Navbar = () =>{
                 <button
                 onClick={toggleUnit}
                 title="Switch °C / °F"
+                className="hover:text-yellow-300 trasition flex items-center"
                 >
                     <Thermometer size={22} />
                     <span
+                    className="ml-1 text-sm">
                         {unit === "metric" ? "°C" : "°F" }
                     </span>
                 </button>
@@ -92,6 +102,7 @@ const Navbar = () =>{
                 <button 
                 onClick={handleRefresh}
                 title="Refresh weather"
+                className="hover:text-yellow-300 trasition"
                 >
                     <RefreshCw size={22} />
                 </button>
@@ -99,6 +110,7 @@ const Navbar = () =>{
                 <button
                 onClick={() => navigate("/setup")}
                 title="Settings"
+                className="hover:text-yellow-300 transition"
                 >
                     <Settings size={22} />
                 </button>
