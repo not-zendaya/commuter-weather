@@ -20,19 +20,38 @@ const WeatherCard =({city}) =>{
         if (city) fetchWeather();
     },[city, apiKey]);
 
-    if(error) return <p className="text-red-500">{error}</p>;
-    if(!weather) return <p>Loading weather for city....</p>;
-
+    if(error) 
+        return(
+        <div 
+        className="bg-slate-800/60 text-red-400 p-6 rounded-2xl shadow-md text-center border border-slate-700/40">
+            <p>{error}</p>
+        </div>
+        );
+    if(!weather) 
+        return(
+        <div 
+        className="bg-slate-800/60 text-slate-300 p-6 rounded-2xl shadow-md text-center border border-slate-700/40">
+            <p>Loading weather for city....</p>
+        </div>
+        );
+    
     return(
-        <div className="bg-white rounded-2xl shadow-md w-full max-w-sm text-center">
-            <h2 className="text-xl font-bold mb-2">{weather.name}</h2>
+        <div 
+        className="bg-slate-800/60 backdrop-blur-md rounded-2xl shadow-lg w-full max-w-sm text-center text-white border border-slate-700/40 p-6 transition-transform duration-200 hover:scale-[1.02] hover:shadow-sky-700/20">
+            <h2 
+            className="text-2xl font-semibold mb-2 text-sky-300text-xl font-bold mb-2">{weather.name}</h2>
             <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} 
             alt={weather.weather[0].description} 
-            className="mx-auto"
+            className="mx-auto w-30 h-30"
             />
-            <p className="text-xl font-semibold mb-1">{Math.round(weather.main.temp)}°C</p>
-            <p className="capitalize text-gray-600 ">{weather.weather[0].description}</p>
-            <p className="mt-2">💧 {weather.main.humidity}% | 🌬️ {weather.wind.speed} km/h </p>
+            <p 
+            className="text-4xl font-bold mb-1 text-sky-100">{Math.round(weather.main.temp)}°C</p>
+            <p 
+            className="capitalize text-slate-300 mb-3 ">{weather.weather[0].description}</p>
+            <div className="flex flex-col justify-center gap-6 text-md text-slate-400 mt-3">
+               <p>💧 {weather.main.humidity}% </p>
+               <p>🌬️ {weather.wind.speed} km/h</p> 
+            </div>    
         </div>
     );
 };
