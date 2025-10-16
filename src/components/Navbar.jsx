@@ -38,7 +38,10 @@ const Navbar = () =>{
 
     return(
         <nav 
-        className="flex items-center justify-between p-4 shadow-md bg-gradient-to-br from-sky-950 via-slate-900 to-sky-950 text-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-700 trasition-all">
+        className="flex items-center justify-between p-4 md:px-8 shadow-md 
+        bg-gradient-to-br from-slate-100 via-blue-100 to-slate-200 text-gray-900
+        dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 dark:text-white 
+        transition-all">
             <div 
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => navigate("/")}
@@ -57,21 +60,21 @@ const Navbar = () =>{
             className="hidden md:flex gap-6 text-md font-medium">
                 <Link 
                 to="/" 
-                className ={`hover:text-yellow-200 $ {
+                className ={`hover:text-teal-700 dark:hover:text-yellow-200 $ {
                     location.pathname === "/" ? "underline" : ""
                     }`}
                 >Home 
                 </Link>
                 <Link 
                 to="/forecast" 
-                className={`hover:text-yellow-200 ${
+                className={`hover:text-teal-700 dark:hover:text-yellow-200 ${
                     location.pathname === "/forecast" ? "underline" : ""
                 }`}
                 > Forecast ⛅ 
                 </Link>
                 <Link 
                 to="/about" 
-                className={`hover:text-yellow-200 ${
+                className={`hover:text-teal-700 dark:hover:text-yellow-200 ${
                     location.pathname === "/about" ? "underline" : ""
                 }`}
                 > About 
@@ -82,7 +85,7 @@ const Navbar = () =>{
                 <button
                 onClick={toggleTheme}
                 title="Toggle Theme"
-                className="hover:text-yellow-300 trasition"
+                className="hover:text-teal-500 dark:hover:text-yellow-300 transition"
                 >
                     {darkMode ? <Moon size={22} /> : <Sun size={22} />}
                 </button>
@@ -90,7 +93,7 @@ const Navbar = () =>{
                 <button
                 onClick={toggleUnit}
                 title="Switch °C / °F"
-                className="hover:text-yellow-300 trasition flex items-center"
+                className="hover:text-teal-500 dark:hover:text-yellow-300 transition flex items-center"
                 >
                     <Thermometer size={22} />
                     <span
@@ -102,7 +105,7 @@ const Navbar = () =>{
                 <button 
                 onClick={handleRefresh}
                 title="Refresh weather"
-                className="hover:text-yellow-300 trasition"
+                className="hover:text-teal-500 dark:hover:text-yellow-300 transition"
                 >
                     <RefreshCw size={22} />
                 </button>
@@ -110,7 +113,7 @@ const Navbar = () =>{
                 <button
                 onClick={() => navigate("/setup")}
                 title="Settings"
-                className="hover:text-yellow-300 transition"
+                className="hover:text-teal-500 dark:hover:text-yellow-300 transition"
                 >
                     <Settings size={22} />
                 </button>
