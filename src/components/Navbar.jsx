@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {Sun , Moon, RefreshCw, Settings, Thermometer} from "lucide-react";
 
 const Navbar = () =>{
     return(
