@@ -24,13 +24,13 @@ const Setup = () =>{
 
     return(
         <div 
-        className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-br from-sky-950 via-slate-900 to-sky-950 text-white p-6 text-center">
+        className="flex flex-col justify-center items-center  bg-gradient-to-br from-sky-950 via-slate-900 to-sky-950 text-white p-6 text-center">  
             {step === 1 && (
-                <div>
+                <div>   
                 <img
                 src={logo}
                 alt="logo"
-                className="mx-auto mb-6 w-55 h-55 object-contain animate-fade-in rounded-3xl"
+                className="mx-auto mb-6 w-55 h-55 object-contain animate-fade-in rounded-3xl border-2 border-sky-500"
                 />
                 <h1 
                 className="text-5xl font-bold mb-8">Welcome to CommuterWeather</h1>
