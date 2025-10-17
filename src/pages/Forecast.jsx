@@ -50,7 +50,7 @@ const Forecast = () =>{
     if (loading) 
         return(
         <div 
-        className="flex items-center justify-center min-h-screen bg-gradient-to-br from-sky-950 via-slate-900 to-sky-950 text-white">  
+        className="flex items-center justify-center min-h-screen bg-gradient-to-br from-sky-700 via-slate-300/50 to-sky-700 dark:bg-gradient-to-br dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 text-gray-900 dark:text-white">  
             <p 
             className="text-xl font-semibold animate-pulse"> Loading Forecast.... </p>
         </div>
@@ -59,7 +59,7 @@ const Forecast = () =>{
     if (error)
     return (
       <div 
-      className="flex items-center justify-center h-screen bg-gradient-to-br from-sky-950 via-slate-900 to-sky-950 text-white">
+      className="flex items-center justify-center h-screen bg-gradient-to-br from-sky-700 via-slate-300/50 to-sky-700 dark:bg-gradient-to-br dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 text-gray-900 dark:text-white">
         <p 
         className="bg-red-500/20 border border-red-400 px-6 py-3 rounded-xl">⚠️ {error}</p>
       </div>
@@ -72,9 +72,9 @@ const getHour = (dt_txt) => {
 
     return(
         <div 
-        className="w-full p-6 flex flex-col justify-between items-center text-white bg-gradient-to-br from-sky-950 via-slate-900 to-sky-950">
+        className="w-full h-screen p-6 flex flex-col justify-between items-center bg-gradient-to-br from-sky-700 via-slate-400/50 to-sky-700 dark:bg-gradient-to-br dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 text-gray-900 dark:text-white">
             <h2 
-            className="text-5xl font-bold text-center mt-4 text-sky-200">
+            className="text-5xl font-bold text-center mt-4 dark:text-sky-200 text-sky-800">
                 5-Day Forecast Comparison</h2>
             <div
             className="flex flex-col md:flex-row justify-center items-center gap-8 w-full">  

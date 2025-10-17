@@ -37,7 +37,7 @@ const WeatherCard =({city}) =>{
     
     return(
         <div 
-        className="bg-slate-800/60 backdrop-blur-md rounded-2xl shadow-lg w-full max-w-sm text-center text-white border border-slate-700/40 p-6 transition-transform duration-200 hover:scale-[1.02] hover:shadow-sky-700/20">
+        className="bg-slate-800/60 backdrop-blur-md rounded-2xl shadow-lg w-full max-w-sm text-center text-white border border-slate-700/40 p-6 transition-transform duration-200 hover:scale-[1.02] dark:hover:shadow-sky-700/20 hover:shadow-cyan-500">
             <h2 
             className="text-2xl font-semibold mb-2 text-sky-300text-xl font-bold mb-2">{weather.name}</h2>
             <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} 

@@ -33,7 +33,7 @@ const Home = () =>{
     if(loading)
         return(
     <div 
-    className="flex items-center justify-center bg-gradient-to-br from-sky-950 via-slate-900 to-sky-950 text-white"
+    className="flex items-center h-screen w-full justify-center bg-gradient-to-br from-sky-700 via-slate-300/50 to-sky-700 dark:bg-gradient-to-br dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 text-gray-900 dark:text-white"
     >
         <p 
         className="text-xl font-semibold animate-pulse"
@@ -45,12 +45,14 @@ const Home = () =>{
 
     return(  
         <div 
-        className="h-screen w-screen bg-gradient-to-br from-sky-900 via-slate-800 to-sky-950 flex flex-col items-center justify-between py-6 px-4 text-white overflow-hidden"
+        className="h-screen w-screen bg-gradient-to-br from-sky-700 via-slate-300/50 to-sky-700 dark:from-sky-900 dark:via-slate-800 dark:to-sky-950 flex flex-col items-center justify-between py-6 px-4 text-white overflow-hidden"
         >
             <h1 
-            className="text-3xl md:text-4xl mb-8 text-white text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-cyan-400 "
+            className="text-3xl md:text-4xl mb-8  font-extrabold "
             > 
-                🌤️ Commuter Weather Dashboard
+                🌤️ <span className=" text-center text-transparent bg-clip-text bg-gradient-to-r from-sky-950 to-cyan-950 dark:text-white ">
+                    Commuter Weather Dashboard
+                    </span>
             </h1>
             <div 
             className="flex flex-col md:flex-row gap-8 justify-center items-stretch w-full max-w-5xl"
