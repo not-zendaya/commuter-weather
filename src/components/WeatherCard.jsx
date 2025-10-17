@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from "react";
+import { useUnit } from "../context/UnitContext";
 
 const WeatherCard =({city}) =>{
      const [weather, setWeather] = useState(null);
      const [error, setError] = useState("");
      const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+     const { unit } = useUnit();
 
      useEffect(() =>{
         const fetchWeather = async () =>{
             try {
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`);
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`);
                 if(!response.ok) throw new Error ("City not found");
                 const data = await response.json();
                 setWeather(data);
@@ -18,7 +20,7 @@ const WeatherCard =({city}) =>{
             }
         };
         if (city) fetchWeather();
-    },[city, apiKey]);
+    },[city, apiKey, unit]);
 
     if(error) 
         return(
@@ -35,6 +37,8 @@ const WeatherCard =({city}) =>{
         </div>
         );
     
+    const temperatureUnit = unit === "metric" ? "°C" : "°F";
+    
     return(
         <div 
         className="bg-slate-800/60 backdrop-blur-md rounded-2xl shadow-lg w-full max-w-sm text-center text-white border border-slate-700/40 p-6 transition-transform duration-200 hover:scale-[1.02] dark:hover:shadow-sky-700/20 hover:shadow-cyan-500">
@@ -45,7 +49,7 @@ const WeatherCard =({city}) =>{
             className="mx-auto w-30 h-30"
             />
             <p 
-            className="text-4xl font-bold mb-1 text-sky-100">{Math.round(weather.main.temp)}°C</p>
+            className="text-4xl font-bold mb-1 text-sky-100">{Math.round(weather.main.temp)}{temperatureUnit}</p>
             <p 
             className="capitalize text-slate-300 mb-3 ">{weather.weather[0].description}</p>
             <div className="flex flex-col justify-center gap-6 text-md text-slate-400 mt-3">

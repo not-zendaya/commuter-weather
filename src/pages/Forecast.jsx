@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import { useUnit } from "../context/UnitContext";
 
 
 const Forecast = () =>{
@@ -8,12 +9,13 @@ const Forecast = () =>{
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
     const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+    const { unit } = useUnit();
 
     const homeCity = localStorage.getItem("homeCity");
     const schoolCity = localStorage.getItem("schoolCity");
     const fetchForecast = async (city, setForecast, keyName) =>{
         try{
-            const response = await fetch (`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`);
+            const response = await fetch (`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=${apiKey}`);
             const data = await response.json ();
             if (data.cod === "200"){
                 const sliced =data.list.slice(0,4);
@@ -38,7 +40,7 @@ const Forecast = () =>{
         }else{
             loadForecast();
         }
-    }, []);
+    }, [unit]);
 
     const loadForecast = async () =>{
         setLoading(true);
@@ -64,6 +66,8 @@ const Forecast = () =>{
         className="bg-red-500/20 border border-red-400 px-6 py-3 rounded-xl">⚠️ {error}</p>
       </div>
     );
+
+const temperatureUnit = unit === "metric" ? "°C" : "°F";
      
 const getHour = (dt_txt) => {
     const date = new Date(dt_txt);
@@ -96,7 +100,7 @@ const getHour = (dt_txt) => {
                                 className="mx-auto"
                                 />
                                 <p 
-                                className="font-bold text-2xl text-white">{Math.round(f.main.temp)}</p>
+                                className="font-bold text-2xl text-white">{Math.round(f.main.temp)}{temperatureUnit}</p>
                                 <p 
                                 className="capitalize text-sky-300 text-sm">{f.weather[0].main}</p>
                             </div>
@@ -123,7 +127,7 @@ const getHour = (dt_txt) => {
                                 className="mx-auto"
                                 />
                                 <p 
-                                className="text-2xl font-bold text-white">{Math.round(f.main.temp)}°C</p>
+                                className="text-2xl font-bold text-white">{Math.round(f.main.temp)}{temperatureUnit}</p>
                                 <p 
                                 className="capitalize text-emerald-300 text-sm">{f.weather[0].main}</p>
                             </div>
