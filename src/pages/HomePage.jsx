@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import WeatherCard from "../components/WeatherCard";
 import Recommendations from "../components/Recommendations";
 
@@ -11,6 +12,7 @@ const Home = () =>{
     const [homeError, setHomeError] = useState(null);
     const [schoolError, setSchoolError] = useState(null);
 
+    const navigate = useNavigate();
     const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
     useEffect(() =>{
@@ -72,6 +74,14 @@ const Home = () =>{
                     <div 
                     className="flex-1 bg-red-200/80 dark:bg-red-800/60 text-red-900 dark:text-red-200 rounded-2xl shadow-md p-6 text-center font-semibold">
                         ❗ {homeError}
+                        <div>
+                            <button
+                            onClick={() => navigate("/setup")}
+                            className="mt-4 px-4 py-2 bg-red-700 hover:bg-red-900 text-white rounded-lg shadow-md transition"
+                            >
+                                Retry & Update City
+                            </button>
+                        </div>
                     </div>
                 ) : (
                     <div 
@@ -84,6 +94,14 @@ const Home = () =>{
                     <div 
                     className="flex-1 bg-red-200/80 dark:bg-red-800/60 text-red-900 dark:text-red-200 rounded-2xl shadow-md p-6 text-center font-semibold">
                         ❗ {schoolError}
+                        <div>
+                            <button
+                            onClick={() => navigate("/setup")}
+                            className="mt-4 px-4 py-2 bg-red-700 hover:bg-red-900 text-white rounded-lg shadow-md transition"
+                            >
+                                Retry & Update City
+                            </button>
+                        </div>
                     </div>
                 ) : (
                    <div 
