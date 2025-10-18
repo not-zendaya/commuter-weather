@@ -18,7 +18,7 @@ const Forecast = () =>{
             const response = await fetch (`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=${apiKey}`);
             const data = await response.json ();
             if (data.cod === "200"){
-                const sliced =data.list.slice(0,4);
+                const sliced =data.list.slice(0,5);
                 setForecast(sliced);
                 localStorage.setItem(keyName, JSON.stringify(sliced));
             }else {
@@ -52,7 +52,7 @@ const Forecast = () =>{
     if (loading) 
         return(
         <div 
-        className="flex items-center justify-center min-h-screen bg-gradient-to-br from-sky-700 via-slate-300/50 to-sky-700 dark:bg-gradient-to-br dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 text-gray-900 dark:text-white">  
+        className="flex items-center justify-center h-screen w-full bg-gradient-to-br from-sky-700 via-slate-300/50 to-sky-700 dark:bg-gradient-to-br dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 text-gray-900 dark:text-white">  
             <p 
             className="text-xl font-semibold animate-pulse"> Loading Forecast.... </p>
         </div>
@@ -63,7 +63,7 @@ const Forecast = () =>{
       <div 
       className="flex items-center justify-center h-screen bg-gradient-to-br from-sky-700 via-slate-300/50 to-sky-700 dark:bg-gradient-to-br dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 text-gray-900 dark:text-white">
         <p 
-        className="bg-red-500/20 border border-red-400 px-6 py-3 rounded-xl">⚠️ {error}</p>
+        className="bg-red-500/20 border border-red-400 px-6 py-3 rounded-xl mt-1 text-base sm:text-lg">⚠️ {error}</p>
       </div>
     );
 
@@ -76,60 +76,65 @@ const getHour = (dt_txt) => {
 
     return(
         <div 
-        className="w-full h-screen p-6 flex flex-col justify-between items-center bg-gradient-to-br from-sky-700 via-slate-400/50 to-sky-700 dark:bg-gradient-to-br dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 text-gray-900 dark:text-white">
+        className="w-full h-screen p-6 sm:px-6 py-6 flex flex-col justify-between items-center 
+        bg-gradient-to-br from-sky-700 via-slate-400/50 to-sky-700 
+        dark:bg-gradient-to-br dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 text-gray-900 dark:text-white">
             <h2 
-            className="text-5xl font-bold text-center mt-4 dark:text-sky-200 text-sky-800">
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mt-4 mb-6 dark:text-sky-200 text-sky-800">
                 5-Day Forecast Comparison</h2>
             <div
-            className="flex flex-col md:flex-row justify-center items-center gap-8 w-full">  
+            className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-10 w-full max-w-6xl">  
                 <div 
-                className="border border-slate-700/50 rounded-2xl p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg">
+                className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 
+                border border-slate-700/50 rounded-2xl p-5 sm:p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg">
                     <h3 
-                    className="text-xl font-semibold text-center text-sky-300 mb-4">
+                    className="text-lg sm:text-xl font-semibold text-center text-sky-300 mb-4">
                         {homeCity.split(",")[0]}</h3>
                     <div 
-                    className="flex scroll-smooth scrollbar-none gap-4 pb-2 max-w-full">
+                    className="flex overflow-x-auto scroll-smooth scrollbar-thin scrollbar-thumb-sky-400/40 gap-4 pb-2">
                         {HomeForecast?.map((f, index) => (
                             <div key={index}    
-                            className="bg-slate-700/60 border border-slate-600 rounded-2xl p-4 transition transform hover:scale-105 min-w-[140px] text-center shadow-lg">
+                            className="bg-slate-700/60 border border-slate-600 rounded-2xl p-4 min-w-[140px] sm:min-w-[150px] 
+                            transition transform hover:scale-105 text-center shadow-lg">
                                 <p 
-                                className="font-medium text-sky-200 mb-1">{getHour(f.dt_txt)}</p>
+                                className="font-medium text-sky-200 mb-1 text-sm sm:text-base">{getHour(f.dt_txt)}</p>
                                 <img
                                 src={`https://openweathermap.org/img/wn/${f.weather[0].icon}@2x.png`}
                                 alt={f.weather[0].description}
-                                className="mx-auto"
+                                className="mx-auto w-16 h-16 sm:w-20 sm:h-20"
                                 />
                                 <p 
-                                className="font-bold text-2xl text-white">{Math.round(f.main.temp)}{temperatureUnit}</p>
+                                className="font-bold text-xl sm:text-2xl text-white">{Math.round(f.main.temp)}{temperatureUnit}</p>
                                 <p 
-                                className="capitalize text-sky-300 text-sm">{f.weather[0].main}</p>
+                                className="capitalize text-sky-300 text-xs sm:text-sm">{f.weather[0].main}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 <div
-                className="border border-slate-700/50 rounded-2xl p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg ">
+                className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 
+                border border-slate-700/50 rounded-2xl p-5 sm:p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg ">
                     <h3 
-                    className="text-xl font-semibold text-center text-emerald-300 mb-4">
+                    className="text-lg sm:text-xl font-semibold text-center text-emerald-300 mb-4">
                         {schoolCity.split(",")[0]}</h3>
                     <div 
-                    className="flex gap-4 scroll-smooth scrollbar-none pb-2 max-w-full">
+                    className="flex overflow-x-auto gap-4 scroll-smooth scrollbar-thin scrollbar-thumb-emerald-400/40 pb-2">
                         {SchoolForecast?.map((f, index) => (
                             <div key={index}  
-                            className="bg-slate-700/50 border border-slate-600 transition-transform duration-200 hover:scale-105 p-4 rounded-2xl min-w-[140px] text-center shadow-lg">
+                            className="bg-slate-700/50 border border-slate-600 rounded-2xl p-4  transition-transform duration-200 hover:scale-105  min-w-[140px] sm:min-w[150px] text-center shadow-lg">
                                 <p 
-                                className="font-medium text-emerald-200 mb-1">
+                                className="font-medium text-emerald-200 mb-1 text-sm sm:text-base">
                                     {getHour(f.dt_txt)}</p>
                                 <img 
                                 src={`https://openweathermap.org/img/wn/${f.weather[0].icon}@2x.png`}
                                 alt={f.weather[0].description}
-                                className="mx-auto"
+                                className="mx-auto w-16 sm:w-20 h-16 sm:h-20"
                                 />
                                 <p 
-                                className="text-2xl font-bold text-white">{Math.round(f.main.temp)}{temperatureUnit}</p>
+                                className="text-xl sm:text-2xl font-bold text-white">{Math.round(f.main.temp)}{temperatureUnit}</p>
                                 <p 
-                                className="capitalize text-emerald-300 text-sm">{f.weather[0].main}</p>
+                                className="capitalize text-emerald-300 text-xs sm:text-sm">{f.weather[0].main}</p>
                             </div>
                         ))}
                     </div>
@@ -137,14 +142,14 @@ const getHour = (dt_txt) => {
             </div>
 
             <div 
-            className="flex flex-wrap justify-center gap-6 ">
+            className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-8">
                 <button
                 onClick={loadForecast}
-                className=" bg-slate-700 hover:bg-slate-600 font-medium text-white px-6 py-2 rounded-xl shadow-lg hover:scale-105 transition-transform">
+                className=" bg-slate-700 hover:bg-slate-600 font-medium text-white px-5 sm:px-6 py-2 rounded-xl shadow-lg hover:scale-105 transition-transform">
                     Refresh Forecast 
                 </button>
                 <Link to="/"  
-                className="bg-sky-600 hover:bg-sky-500 text-white font-medium px-6 py-2 rounded-xl shadow-lg hover:scale-105 transition-transform">
+                className="bg-sky-600 hover:bg-sky-500 text-white font-medium px-5 sm:px-6 py-2 rounded-xl shadow-lg hover:scale-105 transition-transform">
                     Back to Home</Link>
             </div>
         </div>

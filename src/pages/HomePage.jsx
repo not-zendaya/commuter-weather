@@ -58,12 +58,12 @@ const Home = () =>{
 
     return(  
         <div 
-        className="h-screen w-screen bg-gradient-to-br from-sky-700 via-slate-300/50 to-sky-700 dark:from-sky-900 dark:via-slate-800 dark:to-sky-950 flex flex-col items-center justify-between py-6 px-4 text-white overflow-hidden"
+        className="h-screen w-full bg-gradient-to-br from-sky-700 via-slate-300/50 to-sky-700 dark:from-sky-900 dark:via-slate-800 dark:to-sky-950 flex flex-col items-center justify-between py-6 px-4 text-white overflow-hidden"
         >
             <h1 
-            className="text-3xl md:text-4xl mb-8  font-extrabold "
+            className="text-3xl text-center sm:text-4xl md:text-4xl lg:text-5xl mb-8 max-w-full font-bold leading-tight md:whitespace-nowrap"
             > 
-                🌤️ <span className=" text-center text-transparent bg-clip-text bg-gradient-to-r from-sky-950 to-cyan-950 dark:text-white ">
+                🌤️ <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-950 to-cyan-950 dark:text-white ">
                     Commuter Weather Dashboard
                     </span>
             </h1>

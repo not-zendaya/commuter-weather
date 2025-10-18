@@ -23,9 +23,9 @@ const Recommendations =({ homeWeather, schoolWeather}) =>{
 
     return(
         <div 
-        className="bg-slate-800/60 backdrop-blur-md border border-sky-700/80 text-sky-100 text-center px-6 py-4 rounded-2xl shadow-lg w-full max-w-2xl transition-transform duration-200 hover:scale-[1.02] ">   
+        className="bg-slate-800/60 backdrop-blur-md border border-sky-700/80 text-sky-100 text-center px-5 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg w-full max-w-2xl transition-transform duration-300 hover:scale-[1.02] mx-auto">   
             <p 
-            className="text-lg md:text-xl font-medium tracking-wide">
+            className="text-base sm:text-lg md:text-xl font-medium tracking-wide leading-relaxed">
                 {message}
             </p>
         </div>

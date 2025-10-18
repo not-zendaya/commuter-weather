@@ -30,7 +30,7 @@ const Navbar = () =>{
 
     return(
         <nav 
-        className="flex items-center justify-between p-4 md:px-8 shadow-md 
+        className="relative flex items-center justify-between p-4 sm:px-6 md:px-8 py-3 shadow-md w-full z-50 backdrop-blur-md
         bg-gradient-to-br from-slate-100 via-blue-100 to-slate-200 text-gray-900
         dark:from-sky-950 dark:via-slate-900 dark:to-sky-950 dark:text-white 
         transition-all">
@@ -41,15 +41,15 @@ const Navbar = () =>{
                 <img
                 src={logo}
                 alt="logo"
-                className="w-8 h-8 object-contain animate-fade-in object-cover rounded-full border-2 border-sky-600 shadow-lg"
+                className="w-9 h-9 object-contain animate-fade-in object-cover rounded-full border-2 border-sky-600 shadow-md"
                 />
                 <h1
-                className="txt-xl font-bold tracking-wide">
+                className="text-lg sm:text-xl font-bold tracking-wide">
                     CommuterWeather
                 </h1>
             </div>
             <div 
-            className="hidden md:flex gap-6 text-md font-medium">
+            className="hidden md:flex gap-6 text-base font-medium">
                 <Link 
                 to="/" 
                 className ={`hover:text-teal-700 dark:hover:text-yellow-200 $ {
@@ -72,8 +72,9 @@ const Navbar = () =>{
                 > About 
                 </Link>
             </div>
+
             <div 
-            className="flex items-center gap-4">
+            className="hidden md:flex items-center gap-4">
                 <button
                 onClick={toggleTheme}
                 title="Toggle Theme"
@@ -81,7 +82,6 @@ const Navbar = () =>{
                 >
                     {darkMode ? <Moon size={22} /> : <Sun size={22} />}
                 </button>
-
                 <button
                 onClick={toggleUnit}
                 title="Switch °C / °F"
@@ -101,7 +101,6 @@ const Navbar = () =>{
                 >
                     <RefreshCw size={22} />
                 </button>
-
                 <button
                 onClick={() => navigate("/setup")}
                 title="Settings"
