@@ -8,23 +8,34 @@ const Home = () =>{
     const [homeWeather, setHomeWeather] = useState(null);
     const [schoolWeather, setSchoolWeather] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [homeError, setHomeError] = useState(null);
+    const [schoolError, setSchoolError] = useState(null);
+
     const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
 
     useEffect(() =>{
-        const fetchWeather = async (city, setWeather) =>{
+        const fetchWeather = async (city, setWeather, setError) =>{
             try{
                 const response = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`);
                 const data = await response.json();
-                setWeather(data);
+                if(response.ok){
+                    setWeather(data);
+                    setError(null);
+                }else{
+                    setWeather(null);
+                    setError(data.message || "City not found");
+                }
+                
             } catch(err){
                 console.error("Error fetching weather:" , err);
+                setError("Network Error - please try again");
             }
         };
 
         const loadWeather = async () =>{
             setLoading(true);
-            await fetchWeather(homeCity, setHomeWeather);
-            await fetchWeather(schoolCity, setSchoolWeather);
+            await fetchWeather(homeCity, setHomeWeather, setHomeError);
+            await fetchWeather(schoolCity, setSchoolWeather, setSchoolError);
             setLoading(false);
         }
         loadWeather();    
@@ -57,21 +68,36 @@ const Home = () =>{
             <div 
             className="flex flex-col md:flex-row gap-8 justify-center items-stretch w-full max-w-5xl"
             >
-                <div 
-                className="flex-1 text-slate-900 "
-                >
+                {homeError ? (
+                    <div 
+                    className="flex-1 bg-red-200/80 dark:bg-red-800/60 text-red-900 dark:text-red-200 rounded-2xl shadow-md p-6 text-center font-semibold">
+                        ❗ {homeError}
+                    </div>
+                ) : (
+                    <div 
+                    className="flex-1 text-slate-900">
                     <WeatherCard city={homeCity} />
-                </div>
-                <div 
-                className="flex-1 text-slate-900 "
-                >
+                    </div>
+                )}
+
+                {schoolError ? (
+                    <div 
+                    className="flex-1 bg-red-200/80 dark:bg-red-800/60 text-red-900 dark:text-red-200 rounded-2xl shadow-md p-6 text-center font-semibold">
+                        ❗ {schoolError}
+                    </div>
+                ) : (
+                   <div 
+                   className="flex-1 text-slate-900">
                     <WeatherCard city={schoolCity} />
-                </div> 
+                    </div> 
+                )}    
             </div>
             <div 
             className="mt-4 w-full flex justify-center px-4 "
             >
-                <Recommendations homeWeather={homeWeather} schoolWeather={schoolWeather} />
+                {!homeError && !schoolError && (
+                    <Recommendations homeWeather={homeWeather} schoolWeather={schoolWeather} />
+                )}  
             </div>  
         </div>
     );
