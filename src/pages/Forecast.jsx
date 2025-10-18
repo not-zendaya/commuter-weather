@@ -83,7 +83,7 @@ const getHour = (dt_txt) => {
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mt-4 mb-6 dark:text-sky-200 text-sky-800">
                 5-Day Forecast Comparison</h2>
             <div
-            className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-10 w-full max-w-6xl">  
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center items-center gap-8 w-full mx-auto max-w-6xl px-4">  
                 <div 
                 className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 
                 border border-slate-700/50 rounded-2xl p-5 sm:p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg">
