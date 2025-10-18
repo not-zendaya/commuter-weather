@@ -85,8 +85,8 @@ const getHour = (dt_txt) => {
             <div
             className="grid grid-cols-1 sm:grid-cols-2 justify-center gap-8 w-full mx-auto max-w-5xl px-4">  
                 <div 
-                className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto
-                border border-slate-700/50 rounded-2xl p-5 sm:p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg">
+                className="w-full sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto
+                border border-slate-700/50 rounded-2xl p-5 sm:p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg transition-all">
                     <h3 
                     className="text-lg sm:text-xl font-semibold text-center text-sky-300 mb-4">
                         {homeCity.split(",")[0]}</h3>
@@ -113,8 +113,8 @@ const getHour = (dt_txt) => {
                 </div>
 
                 <div
-                className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto
-                border border-slate-700/50 rounded-2xl p-5 sm:p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg ">
+                className="w-full sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto
+                border border-slate-700/50 rounded-2xl p-5 sm:p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg transition-all ">
                     <h3 
                     className="text-lg sm:text-xl font-semibold text-center text-emerald-300 mb-4">
                         {schoolCity.split(",")[0]}</h3>
