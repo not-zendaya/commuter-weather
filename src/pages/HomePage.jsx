@@ -72,12 +72,12 @@ const Home = () =>{
             >
                 {homeError ? (
                     <div 
-                    className="flex-1 bg-red-200/80 dark:bg-red-800/60 text-red-900 dark:text-red-200 rounded-2xl shadow-md p-6 text-center font-semibold">
+                    className="flex-1 rounded-2xl shadow-xl p-6 text-center font-semibold flex flex-col items-center justify-center bg-gradient-to-br from-sky-600 via-sky-700 to-teal-600 dark:from-sky-800 dark:via-sky-900 dark:to-teal-800 border border-sky-500/40 text-white">
                         ❗ {homeError}
                         <div>
                             <button
                             onClick={() => navigate("/setup")}
-                            className="mt-4 px-4 py-2 bg-red-700 hover:bg-red-900 text-white rounded-lg shadow-md transition"
+                            className="mt-4 px-4 py-2 bg-gradient-to-r from-cyan-500 via-sky-500 to-teal-500 hover:from-cyan-600 hover:via-sky-600 hover:to-teal-600 text-white font-medium rounded-lg shadow-md transition-transform hover:scale-105"
                             >
                                 Retry & Update City
                             </button>
@@ -92,12 +92,12 @@ const Home = () =>{
 
                 {schoolError ? (
                     <div 
-                    className="flex-1 bg-red-200/80 dark:bg-red-800/60 text-red-900 dark:text-red-200 rounded-2xl shadow-md p-6 text-center font-semibold">
+                    className="flex-1 rounded-2xl shadow-xl p-6 text-center font-semibold flex flex-col items-center justify-center bg-gradient-to-br from-sky-600 via-sky-700 to-teal-600 dark:from-sky-800 dark:via-sky-900 dark:to-teal-800 border border-sky-500/40 text-white">
                         ❗ {schoolError}
                         <div>
                             <button
                             onClick={() => navigate("/setup")}
-                            className="mt-4 px-4 py-2 bg-red-700 hover:bg-red-900 text-white rounded-lg shadow-md transition"
+                            className="mt-4 px-4 py-2 bg-gradient-to-r from-cyan-500 via-sky-500 to-teal-500 hover:from-cyan-600 hover:via-sky-600 hover:to-teal-600 text-white font-medium rounded-lg shadow-md transition-transform hover:scale-105"
                             >
                                 Retry & Update City
                             </button>
