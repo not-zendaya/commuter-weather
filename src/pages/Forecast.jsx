@@ -113,7 +113,7 @@ const getHour = (dt_txt) => {
                 </div>
 
                 <div
-                className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 
+                className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto
                 border border-slate-700/50 rounded-2xl p-5 sm:p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg ">
                     <h3 
                     className="text-lg sm:text-xl font-semibold text-center text-emerald-300 mb-4">
