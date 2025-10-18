@@ -102,7 +102,7 @@ const Navbar = () =>{
                     <RefreshCw size={22} />
                 </button>
                 <button
-                onClick={() => navigate("/setup")}
+                onClick={() => navigate("/")}
                 title="Settings"
                 className="hover:text-teal-500 dark:hover:text-yellow-300 transition"
                 >
@@ -175,7 +175,7 @@ const Navbar = () =>{
                         <button
                         onClick={() => {
                             setMenuOpen(false);
-                            navigate("/setup");
+                            navigate("/");
                         }}
                         title="Settings"
                         className="hover:text-teal-500 dark:hover:text-yellow-300 transition"

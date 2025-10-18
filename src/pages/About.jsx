@@ -33,7 +33,7 @@ const About = () => {
             </p>
             <div className="mt-8">
                 <Link
-                to="/"
+                to="/home"
                 className="bg-sky-600 hover:bg-sky-500 dark:bg-sky-700 dark:hover:bg-sky-600 
                 text-white font-medium px-6 py-2 sm:px-8 sm:py-3 rounded-xl shadow-md transition-transform hover:scale-105"
                 >

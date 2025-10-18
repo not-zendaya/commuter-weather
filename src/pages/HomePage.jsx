@@ -76,7 +76,7 @@ const Home = () =>{
                         ❗ {homeError}
                         <div>
                             <button
-                            onClick={() => navigate("/setup")}
+                            onClick={() => navigate("/")}
                             className="mt-4 px-4 py-2 bg-gradient-to-r from-cyan-500 via-sky-500 to-teal-500 hover:from-cyan-600 hover:via-sky-600 hover:to-teal-600 text-white font-medium rounded-lg shadow-md transition-transform hover:scale-105"
                             >
                                 Retry & Update City
@@ -96,7 +96,7 @@ const Home = () =>{
                         ❗ {schoolError}
                         <div>
                             <button
-                            onClick={() => navigate("/setup")}
+                            onClick={() => navigate("/")}
                             className="mt-4 px-4 py-2 bg-gradient-to-r from-cyan-500 via-sky-500 to-teal-500 hover:from-cyan-600 hover:via-sky-600 hover:to-teal-600 text-white font-medium rounded-lg shadow-md transition-transform hover:scale-105"
                             >
                                 Retry & Update City

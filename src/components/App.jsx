@@ -14,10 +14,11 @@ function App(){
       <div className="h-screen bg-gray-50 text-gray-500">
         <Routes>
           <Route element={<Layout />}>
-          <Route path="/" element={<Home /> } />
+          <Route path="/" element={<Setup /> } />
+          <Route path="/home" element={<Home />} />
           <Route path="/forecast" element={<Forecast /> } />
           <Route path="/about" element={<About /> } />
-          <Route path="/setup" element={<Setup />} />
+          
           </Route>
         </Routes>
       </div>

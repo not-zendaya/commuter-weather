@@ -148,7 +148,7 @@ const getHour = (dt_txt) => {
                 className=" bg-slate-700 hover:bg-slate-600 font-medium text-white px-5 sm:px-6 py-2 rounded-xl shadow-lg hover:scale-105 transition-transform">
                     Refresh Forecast 
                 </button>
-                <Link to="/"  
+                <Link to="/home"  
                 className="bg-sky-600 hover:bg-sky-500 text-white font-medium px-5 sm:px-6 py-2 rounded-xl shadow-lg hover:scale-105 transition-transform">
                     Back to Home</Link>
             </div>

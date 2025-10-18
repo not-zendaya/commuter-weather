@@ -19,7 +19,7 @@ const Setup = () =>{
         localStorage.setItem("homeCity", homeCity.trim());
         localStorage.setItem("schoolCity", schoolCity.trim());
 
-        navigate("/");
+        navigate("/home");
     };
 
     return(
