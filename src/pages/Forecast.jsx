@@ -83,19 +83,19 @@ const getHour = (dt_txt) => {
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mt-4 mb-6 dark:text-sky-200 text-sky-800">
                 5-Day Forecast Comparison</h2>
             <div
-            className="grid grid-cols-1 sm:grid-cols-2 justify-center gap-8 w-full mx-auto max-w-5xl px-4">  
+            className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:justify-center gap-8 w-full mx-auto max-w-5xl px-4">  
                 <div 
-                className="w-full sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto
+                className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto
                 border border-slate-700/50 rounded-2xl p-5 sm:p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg transition-all">
                     <h3 
                     className="text-lg sm:text-xl font-semibold text-center text-sky-300 mb-4">
                         {homeCity.split(",")[0]}</h3>
                     <div 
-                    className="flex overflow-x-auto scroll-smooth scrollbar-thin scrollbar-thumb-sky-400/40 gap-4 pb-2">
+                    className="flex overflow-x-auto gap-4 scroll-smooth scrollbar-thin scrollbar-thumb-sky-400/40  pb-2">
                         {HomeForecast?.map((f, index) => (
                             <div key={index}    
                             className="bg-slate-700/60 border border-slate-600 rounded-2xl p-4 min-w-[140px] sm:min-w-[150px] 
-                            transition transform hover:scale-105 text-center shadow-lg">
+                            transition-transform duration-200 hover:scale-105 text-center shadow-lg">
                                 <p 
                                 className="font-medium text-sky-200 mb-1 text-sm sm:text-base">{getHour(f.dt_txt)}</p>
                                 <img
@@ -113,8 +113,8 @@ const getHour = (dt_txt) => {
                 </div>
 
                 <div
-                className="w-full sm:w-[90%] md:w-[80%] lg:w-[60%] xl:w-[50%] mx-auto
-                border border-slate-700/50 rounded-2xl p-5 sm:p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg transition-all ">
+                className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto
+                border border-slate-700/50 rounded-2xl p-5 sm:p-6 shadow-xl bg-slate-700/50 backdrop-blur-lg transition-all">
                     <h3 
                     className="text-lg sm:text-xl font-semibold text-center text-emerald-300 mb-4">
                         {schoolCity.split(",")[0]}</h3>
@@ -122,7 +122,8 @@ const getHour = (dt_txt) => {
                     className="flex overflow-x-auto gap-4 scroll-smooth scrollbar-thin scrollbar-thumb-emerald-400/40 pb-2">
                         {SchoolForecast?.map((f, index) => (
                             <div key={index}  
-                            className="bg-slate-700/50 border border-slate-600 rounded-2xl p-4  transition-transform duration-200 hover:scale-105  min-w-[140px] sm:min-w[150px] text-center shadow-lg">
+                            className="bg-slate-700/50 border border-slate-600 rounded-2xl p-4 transition-transform duration-200 
+                            hover:scale-105  min-w-[140px] sm:min-w[150px] text-center shadow-lg">
                                 <p 
                                 className="font-medium text-emerald-200 mb-1 text-sm sm:text-base">
                                     {getHour(f.dt_txt)}</p>
