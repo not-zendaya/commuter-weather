@@ -51,9 +51,9 @@ const Navbar = () =>{
             <div 
             className="hidden md:flex gap-6 text-base font-medium">
                 <Link 
-                to="/" 
+                to="/home" 
                 className ={`hover:text-teal-700 dark:hover:text-yellow-200 $ {
-                    location.pathname === "/" ? "underline" : ""
+                    location.pathname === "/home" ? "underline" : ""
                     }`}
                 >Home 
                 </Link>
@@ -123,10 +123,10 @@ const Navbar = () =>{
                 font-medium text-base shadow-lg md:hidden transition-all"
                 >
                     <Link
-                    to="/"
+                    to="/home"
                     onClick={() => setMenuOpen(false)}
                     className={`hover:text-teal-700 dark:hover:text-yellow-200 ${
-                        location.pathname === "/" ? "underline" : ""
+                        location.pathname === "/home" ? "underline" : ""
                     }`}
                     >
                         Home
